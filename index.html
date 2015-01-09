@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Glossy Editor - Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="jquery.glossyeditor.js"></script>
+    
+    <!--  ### Lot's more examples in the qunit test file! -->   
+    <!--    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qunit/1.16.0/qunit.js"></script>
+    <script src="jquery.glossyeditor.test.js"></script>
+    -->
+    
+    <script>
+        $('body').prepend('<div id="letsgettypee" style="height:100%;"></div>');
+        var glossyeditor = $('#letsgettypee').glossyeditor({fullScreenDemo: true});
+        var targetString = 'Hello let`s get started!';
+        var charIndex = 0;
+        var interval = setInterval(function(){
+            $('#letsgettypee').trigger({type: 'keypress', charCode: targetString.charCodeAt(charIndex++)});
+            if (charIndex >= targetString.length)
+                window.clearInterval(interval);
+        }, Math.floor((Math.random() * 100) + 50));
+    </script>
+</body>
+</html>                                	
